@@ -11,7 +11,6 @@ var LocalStrategy = require('passport-local').Strategy;
 let options       = { useNewUrlParser: true , useUnifiedTopology: true };
 mongoose.connect(process.env.MONGODB_URI || 
   'mongod://localhost/app.js');
-mongoose.set('useCreateIndex', true);
 const port = process.env.PORT || 3000;
 
 var app           = express();
@@ -21,7 +20,7 @@ app.use(express.urlencoded({ extended: true }));;
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(require('express-session')({
-    secret: 'keyboard cat',
+    secret: 'never ever 821neyY23ndw',
     resave: false,
     saveUninitialized: false
 }));
@@ -48,5 +47,7 @@ app.set('views', path.join(__dirname, 'Views'));
 // So if you put a style.css file in that directory and you 
 // could link directly to it in your view <link href=”style.css” rel=”stylesheet”>
 app.use(express.static(path.join(__dirname, 'static')));
- 
-app.listen(port);
+
+http.createServer(app).listen(port), function(){
+  console.log('Express server listening on port ' + app.get('port'));
+};
