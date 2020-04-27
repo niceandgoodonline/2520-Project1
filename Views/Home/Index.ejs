@@ -1,0 +1,19 @@
+<% layout('../layouts/mainlayout.ejs') -%>
+<div id="title">
+<h1>100% Real Movie Reviews</h1>
+</div>
+
+<% for(var i=0; i < movie.length; i++) { %>
+    <h2><%= movie[i].movieName %></h2>
+        <table>
+        <tr>
+            <%if (reviewCount[i] > 0) { %>
+                <td class='colOf3'> <b>Stars: </b><%= ratings[i] ? ratings[i] : '' %></td>
+                <td class='colOf3'> Reviews: <a href='/Home/Reviews?id=<%=movie[i].id %>'> <%= reviewCount[i] ? reviewCount[i] : '' %> </a></td>
+            <% } else { %>
+            <td class='colOf3filler'>No Reviews Yet!</td>
+            <% } %>
+            <td class='colOf3'><a href='/User/WriteReview?id=<%= movie[i].id %>'>Write A Review</a> </td>
+        </tr>
+    </table>
+<% } %>

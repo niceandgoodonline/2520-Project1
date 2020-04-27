@@ -1,0 +1,16 @@
+<% layout('../layouts/mainlayout.ejs') -%>
+<link rel="stylesheet" type="text/css" href="../style.css">
+<h1>Reviews By:<br> <%= reviews[0].reviewUser %></h1>
+<table class='3ColTable'>
+<tr>
+    <th class='colOf3'>Rating out of 5</th><th class='colOf3'>Review</th><th class='colOf3'><b>Movie Name</b></th><th>
+</tr>
+    <% for(let i=0; i < reviews.length; i++) { %>
+        
+        <tr>
+            <td class='tableDataLeft'> <%= reviews[i].reviewRating ? reviews[i].reviewRating : '' %></td>
+            <td class='tableDataRight'> <%= reviews[i].reviewText ? reviews[i].reviewText : '' %></td>
+            <td class='tableDataRight'> <%= reviews[i].movieName ? reviews[i].movieName : '' %></td>
+        </tr>
+<% } %>
+</table>

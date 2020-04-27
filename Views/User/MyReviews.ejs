@@ -1,0 +1,24 @@
+<% layout('../layouts/mainlayout.ejs') -%>
+<link rel="stylesheet" type="text/css" href="../style.css">
+<h1>
+    Your Reviews
+</h1>
+
+<h1><%= errorMessage ? errorMessage : "" %></h1><br/>
+
+<table class='3colTable'>
+    <tr>
+        <th class='colOf3'>Rating out of 5</th><th class='colOf3'><b>Movie Title</b></th><th class='colOf3'>Review</th>
+    </tr>
+        <% for(let i=0; i < reviews.length; i++) { %>
+            
+            <tr>
+                <td class="tableDataLeft"> <%= reviews[i].reviewRating ? reviews[i].reviewRating : '' %></td>
+                <td> <%= reviews[i].movieName ? reviews[i].movieName : '' %> <br/><a class='myReviewLink' href='/User/EditReview?movieName=<%= reviews[i].movieName %>' > Edit</a> | <a class='myReviewLink' href='/User/DeleteReview?movieName=<%= reviews[i].movieName %>'>Delete</a></a> </td>
+                <td class="tableDataRight"> <%= reviews[i].reviewText ? reviews[i].reviewText : '' %></td>
+            </tr>
+    <% } %>
+</table>
+
+
+

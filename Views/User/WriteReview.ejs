@@ -1,0 +1,26 @@
+<% layout('../layouts/mainlayout.ejs') -%>
+<link rel="stylesheet" type="text/css" href="../style.css">
+<form action="/User/PostReview" method="POST">   
+    <input type='hidden' name='movieName' value='<%= movie.movieName %>'></hidden>
+    <input type='hidden' name='id' value='<%= movie.id %>'></hidden>
+    <h1><td><%= movie.movieName %></td></h1>
+    <table>
+        <tr>
+            <td>Review: </td>
+            <td><input name="review" type="text" value=""></td>
+        </tr>  
+        <tr>
+            <td>Rating: </td>
+            <td><input name="rating" type="text" value=""></td>
+        </tr> 
+        <tr>
+            <td></td>
+            <td> <input type="submit" value="Submit"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td> <input type="submit" value="Cancel"></td>
+        </tr>
+    </table>
+</form>
+<%= errorMessage ? errorMessage : '' %><br/>

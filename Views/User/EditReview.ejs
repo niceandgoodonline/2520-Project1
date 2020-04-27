@@ -1,0 +1,28 @@
+<% layout('../layouts/mainlayout.ejs') -%>
+<link rel="stylesheet" type="text/css" href="../style.css">
+<h1> Edit Your Review</h1>
+<%= errorMessage ? errorMessage : ''%><br><br>
+
+<form action="/User/UpdateReview" method="POST">   
+    <input type='hidden' name='movieName' value='<%= review.movieName %>'></hidden>
+    <td><h2><%= review.movieName %></h2></td>
+    <table>
+        <tr>
+            <td>Review: </td>
+            <td><input name="review" type="text" value=""></td>
+        </tr>  
+        <tr>
+            <td>Rating: </td>
+            <td><input name="rating" type="text" value=""></td>
+        </tr> 
+        <tr>
+            <td></td>
+            <td> <input type="submit" value="Submit"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td> <input type="submit" value="Cancel"></td>
+        </tr>
+    </table>
+</form>
+

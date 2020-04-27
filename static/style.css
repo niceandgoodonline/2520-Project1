@@ -1,0 +1,57 @@
+body {
+    position: relative;
+    background: black url('bgsm.png') top repeat-x fixed;
+    background-size: 50vh ;
+    color: white;
+    margin-left: 3vw;
+    font-family: monospace
+}
+
+.mainView{
+    position: relative;
+    top: 10vh;
+    font-size: 2vh;
+}
+
+#topMenu{
+    position: relative;
+    text-align: right;
+    float: right;
+    right: 0vw;
+    top:.5vh;
+    width: 50vw;
+}
+
+a{
+    color: sandybrown;
+}
+
+.colOf3{
+    width: 27vw;
+    padding: 1vh 5vw 1vh;
+    font-size: 3vh;
+    font-weight: bold;
+}
+
+.colOf3filler{
+    width: 69vw;
+    padding: 1vh 5vw 1vh;
+    font-size: 3vh;
+    font-weight: bold;
+}
+
+.tableDataLeft{
+    text-align: center;
+    padding: 1vh 5vw 1vh;
+    font-size: 4vh;
+}
+
+.tableDataRight{
+    text-align: right;
+    padding: 1vh 5vw 1vh;
+}
+
+.myReviewLink{
+    font-size: 1.5vh;
+
+}
