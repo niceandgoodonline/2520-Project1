@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 var express       = require('express');
 var mongoose      = require('mongoose');
 var passport      = require('passport');
@@ -6,10 +8,11 @@ var path          = require('path');
 var engine        = require('ejs-locals');
 var bodyParser    = require('body-parser');
 var LocalStrategy = require('passport-local').Strategy;
-const DB_URI      = 'mongodb://localhost:27017/testdb';
 let options       = { useNewUrlParser: true , useUnifiedTopology: true };
-mongoose.connect(DB_URI, options);
+mongoose.connect(process.env.MONGODB_URI || 
+  'mongod://localhost/app.js');
 mongoose.set('useCreateIndex', true);
+const port = process.env.PORT || 3000;
 
 var app           = express();
 
@@ -31,7 +34,7 @@ passport.deserializeUser(User.deserializeUser());
 
  // Enable routing and use port 1337.
 require('./router')(app);
-app.set('port', 1337);
+app.set('port', port);
 
  // Set up ejs templating.
 app.engine('ejs', engine);
@@ -46,6 +49,4 @@ app.set('views', path.join(__dirname, 'Views'));
 // could link directly to it in your view <link href=”style.css” rel=”stylesheet”>
 app.use(express.static(path.join(__dirname, 'static')));
  
-http.createServer(app).listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'));
-});
+app.listen(port);
